@@ -93,8 +93,14 @@ class PostsStore:
             self.vectordb.persist()
 
     def search_posts(self, query, metadata={}, limit=10, fetch_k=50):
-        # return self.vectordb.similarity_search_with_relevance_scores(query, k=limit)
-        # return self.vectordb.search(query, "mmr", k=limit)
+        """
+        Search posts in the vectorstore.
+        :param query: text
+        :param metadata: filter by a dict of boolean expressions
+        :param limit: number of results to return
+        :param fetch_k: number of results to fetch from the vectorstore
+        :return: list of Document objects
+        """
 
         if metadata:
             collection = self.vectordb._client.get_or_create_collection("journal")

@@ -3,11 +3,6 @@ from flask.json import JSONEncoder
 
 app = Flask(__name__)
 
-from post_storage import PostsStore
-
-posts_store = PostsStore(vector_dir="db")
-
-
 class StringConverterJSONEncoder(JSONEncoder):
     def default(self, obj):
         try:
@@ -19,6 +14,9 @@ class StringConverterJSONEncoder(JSONEncoder):
 # Use our custom JSONEncoder
 app.json_encoder = StringConverterJSONEncoder
 
+from post_storage import PostsStore
+
+posts_store = PostsStore(vector_dir="db")
 
 def default_json(t):
     return f'{t}'
@@ -45,4 +43,6 @@ def search():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5555, use_reloader=False)
+    app.run(debug=True, host='0.0.0.0',
+            port=5555,
+            use_reloader=False)
