@@ -23,60 +23,22 @@ summariseLensProfile: show a page of info about the user profile, such as their 
 analyseLensProfileTopics: analyse the text of all the posts and comments by a given profile to find the common topics. Useful for queries like "what does this person post about?" and "What is this person interested in?"
 - profileHandle: handle of the profile, such as an ENS name (e.g. john.eth) or LENS (john.lens)
 
+listNFTsOwned: list all the NFTs owned by the profile
+- profileHandle: handle of the profile
+
 
 Here is one example:
 
-query: Find posts that contain images and talk about space tech
+query: Find posts that contain videos and talk about space tech
 response:
 {
     "name": "getPostsByContentAndType",
     "args":
     {
         "query": "posts about space",
-        "type": "IMAGE",
+        "type": "VIDEO",
     }
 }
 
-
-{
-    "name": "getPostsByContent",
-    "args":
-    {
-        "query": "posts about space"
-    }
-}
-
-
-{
-    "name": "getPostsByContentAndType",
-    "args":
-    {
-        "query": "posts about space",
-        "type": "video",        
-    }
-}
-
-
-{
-    "name": "summariseLensProfile",
-    "args":
-    {
-        "profileHandle": "john.eth",
-    }
-}
-
-{
-    "name": "analyseLensProfileTopics",
-    "args":
-    {
-        "profileHandle": "john.eth",
-    }
-}
-
-
-
-
-
-
-The first user query is: find me all the wallets that follow me
+The first user query is: find me posts with cute pictures of cats 
 

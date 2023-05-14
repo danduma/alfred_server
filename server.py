@@ -3,6 +3,7 @@ from flask.json import JSONEncoder
 
 app = Flask(__name__)
 
+
 class StringConverterJSONEncoder(JSONEncoder):
     def default(self, obj):
         try:
@@ -17,6 +18,7 @@ app.json_encoder = StringConverterJSONEncoder
 from post_storage import PostsStore
 
 posts_store = PostsStore(vector_dir="db")
+
 
 def default_json(t):
     return f'{t}'
