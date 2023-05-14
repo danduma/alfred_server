@@ -75,3 +75,4 @@ db/
 data/
 
 *.pem
+*.rsa
