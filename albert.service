@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn instance to serve albert
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/albert_server
+ExecStart=/home/ubuntu/.local/bin/gunicorn -w 2 -b 0.0.0.0:5555 server:app
+
+[Install]
+WantedBy=multi-user.target
